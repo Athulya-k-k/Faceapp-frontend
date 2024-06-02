@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RoyalUI Admin</title>
+
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo me-5" href="index.html"><img src="./imgs.jpg" style="height: 50px; width: 300px;" class="me-2"
+            alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="margin-right: 10px;">
+          <span class="ti-view-list"></span>
+      </button>
+      <div style="display: inline-block;color: black; font-size: larger; margin-left: 10px; ">
+         <span id="org_name"></span>
+         
+      </div>
+
+      <div style="margin-left: 1000px; color: black; font-size: larger;"  > <span id="first_name"></span> </div>
+      
+
+        <ul class="navbar-nav navbar-nav-right">
+
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown me-1">
+
+             
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                data-bs-toggle="dropdown">
+                <i class="ti-bell mx-0"></i>
+                <span class="count"></span>
+              </a>
+
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                <img src="images/faces/face28.jpg" alt="profile" />
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item">
+                  <i class="ti-settings text-primary"></i>
+                  My Profile
+                </a>
+                <a class="dropdown-item">
+                  <i class="ti-power-off text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="ti-view-list"></span>
+        </button>
+      </div>
+    </nav>
+
+    
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper" style="background-color: blueviolet;">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="ti-shield menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/forms/faceAppFinal.html">
+              <i class="ti-image menu-icon"></i>
+              <span class="menu-title">Match Profile</span>
+            </a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="ti-layout-list-post menu-icon"></i>
+              <span class="menu-title">My Team</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <i class=" ti-support menu-icon"></i>
+              <span class="menu-title">Support</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="ti-settings menu-icon"></i>
+              <span class="menu-title">Settings</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h4 class="font-weight-bold mb-0">Dashboard</h4>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title text-md-center text-xl-left">Total Upload</p>
+                  <div
+                    class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">5</h3>
+                    <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title text-md-center text-xl-left">MATCH</p>
+                  <div
+                    class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">3</h3>
+                    <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title text-md-center text-xl-left">UNMATCH</p>
+                  <div
+                    class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">1</h3>
+                    <i class="ti-agenda icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const first_name = localStorage.getItem('first_name');
+        const org_name = localStorage.getItem('org_name');
+        console.log('First Name from localStorage:', first_name); // Debugging statement
+        console.log('Organization Name from localStorage:', org_name); // Debugging statement
+
+        const firstNameElement = document.getElementById('first_name');
+        const orgNameElement = document.getElementById('org_name');
+
+        if (first_name) {
+            firstNameElement.innerText = first_name;
+        } else {
+            firstNameElement.innerText = 'User';
+        }
+
+        if (org_name) {
+            orgNameElement.innerText = org_name;
+        } else {
+            orgNameElement.innerText = 'your organization';
+        }
+    });
+</script>
+
+
+  <script src="vendors/base/vendor.bundle.base.js"></script>
+
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="js/jquery.cookie.js" type="text/javascript"></script>
+
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/todolist.js"></script>
+
+  <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

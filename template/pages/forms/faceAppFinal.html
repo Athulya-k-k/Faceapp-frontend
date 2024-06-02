@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceApp v1.2</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color:  rgb(99, 133, 150);
+    height:12vh;
+}
+
+.top-menu-section > div{
+    background-color: rgb(99, 133, 150);
+    color: white; 
+    /* margin: 5px; */
+    text-align: center;
+    /* height:10vh; */
+}
+
+.toolbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f31616;
+    flex-wrap: wrap;
+}
+
+.toolbox .tool {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.toolbox img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 50%;
+}
+
+.toolbox img:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+.sub-icons {
+    display: flex;
+    flex-wrap: wrap;
+    height: 88vh;
+    width: 20%;
+    background-color: rgb(240, 241, 237);
+    align-items: top;
+    text-align: center;
+    justify-content: space-between;
+    padding-top:20px;
+
+}
+
+.sub-icons img {            
+    margin: 5px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border:1px solid wheat;
+}
+
+.canvas-section {
+    background-color: #fafaf9; /* Change the background color as needed */
+}
+
+.content-area{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+.logo-img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;           
+}
+.toolbox img:hover {
+    transform: scale(1.1); /* Increase size on hover */
+} 
+.face-match-section{
+    display: flex;
+    align-items:start;
+    justify-content: space-around;
+    background-color: rgb(250, 249, 246);
+    height: 100vh;
+}
+
+   /* Style for the upload button */
+#uploadBtn {
+display: none;
+}
+
+#uploadLabel {
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin-top: 20px;
+cursor: pointer;
+}
+
+#previewImage {
+max-width: 120px;
+/* height: 120px; */
+margin-top: 20px;
+}
+.face-preview > img{
+height: 200px;
+width: 200px;  
+
+}
+
+.face-preview {
+height: 200px;
+width: 200px;
+border: 1 rgb(75, 71, 71) solid;
+
+}
+.face-match-results{
+    display: flex;
+    align-items:start;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color:  rgb(190, 192, 193);
+    text-align: left;
+    padding: 5px;
+}   
+
+#faceMatchLabel {
+background-color: #4CAF50;
+border: none;
+color: hsl(45, 29%, 97%);
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin-top: 20px;
+cursor: pointer;
+}
+
+.face-match-area {
+display: flex;
+flex-direction: row;
+background-color: #ffff;
+height: 60vh;
+padding: 15px;
+width: 50%;
+margin: 12px;
+justify-content: space-around;
+}
+.img-face-match{
+height: 200px;
+width: 200px;
+border-radius: 10%;
+}
+
+.face-match-results-details {
+padding: 15px;
+display: flex;
+flex-direction: column;
+background-color:#ffffff;
+color: rgb(17, 16, 16);
+/* width: 20%; */
+margin: 5px;
+text-align: left;
+line-height:32px;
+font-size: 20px;
+text-transform:initial;
+/* justify-content: space-around; */
+}
+.face-match-results-img{
+background-color:#ffff;
+text-align: center;
+
+}
+
+.face-head-menu{ 
+/* display: flex; */
+height: 10vh;    
+background-color: rgb(201, 212, 210);
+font-size: 26 px;
+text-transform: uppercase;
+/* align-items: center; */
+text-align: center;
+}
+.face-head-menu > h1{
+text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="top-menu-section">    
+        <div> <img src="../assets/icons/face-match-logo.png" class="logo-img"></div>
+        <div class="toolbox" id="toolbox">
+            <!-- Add toolbox images here -->
+        </div>
+        <div>  
+            <img src="../assets/icons/clear-icon.png" class="clear-canvas logo-img">
+            <img src="../assets/icons/save.png" class="save-img logo-img">
+            <a href="#face-match"> <img src="../assets/icons/upload-icon.png" class="logo-img" ></a>
+            <img src="../assets/icons/logout.png" class="logo-img"  id="logoutBtn">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="sub-icons">
+
+        </div>
+        <div class="buttons buttons-section">
+            <canvas id="canvas" class="canvas-section" width="600" height="800"></canvas>
+        </div>
+    </div>
+    
+    <div class="face-match-section" id="face-match">
+        
+        <div class="face-upload-section">
+            <h1> FACE MATCH UPLOAD</h1>
+            <h3> UPLOAD IMAGE</h3>         
+            <input type="file" id="uploadBtn" accept="image/*" onchange="previewImage(event)">
+           
+            <label for="uploadBtn" id="uploadLabel">SELECT IMAGE</label>  
+            <label for="faceMatchLbl" id="faceMatchLabel"> FACE SEARCH</label>
+            <div id="previewImage" class="face-preview"></div>
+           
+        
+        </div>
+        <div class="face-match-area">
+            <div class="face-match-results-img">
+              <h2 align="center"> FACE APP RESULTS</h2>
+              <img src="../assets/imgs/default.png" id="lblImage" class="img-face-match"> 
+            </div>       
+              <div class="face-match-results-details">
+                <label id="lblFname"></label>
+                <label id="lblLname"></label>
+                <label id="lblGender"></label>
+                <label id="lblDob"></label>
+                <label id="lblEmail"></label>
+                <label id="lblMobile"></label>
+                <label id="lblAddress"></label>
+                <label id="lblOcp"></label>
+                <label id="lblBld"></label>
+                <label id="lblErr"></label>
+             
+             </div>
+          </div>
+    </div>
+
+   <script>
+    
+
+
+
+document.getElementById("faceMatchLabel").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const apiUrl = 'http://127.0.0.1:8000/api/upload_image/';
+    const fileInput = document.getElementById('uploadBtn');
+
+    if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append('image', file);
+       
+        fetch(apiUrl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data) {
+                if (data.error) {
+                    // Display error message
+                    document.getElementById("lblErr").innerHTML = `Error: ${data.error}`;
+                } else {
+                    // Display face match results
+                    document.getElementById("lblFname").innerHTML = `FirstName: ${data.fname}`;
+                    document.getElementById("lblLname").innerHTML = `Lastname: ${data.lname}`;
+                    document.getElementById("lblGender").innerHTML = `Gender: ${data.gender}`;
+                    document.getElementById("lblDob").innerHTML = `Date of Birth: ${data.dob}`;
+                    document.getElementById("lblEmail").innerHTML = `Email: ${data.email}`;
+                    document.getElementById("lblMobile").innerHTML = `Mobile: ${data.mobile}`;
+                    document.getElementById("lblAddress").innerHTML = `Address: ${data.address}`;
+                    document.getElementById("lblOcp").innerHTML = `Occupation: ${data.occupation}`;
+                    document.getElementById("lblBld").innerHTML = `Blood Group: ${data.bloodgroup}`;
+                    document.getElementById("lblImage").src = data.imageUrl;
+                    document.getElementById("lblErr").innerHTML = ""; 
+                }
+            }
+        })
+        .catch(error => {
+            // Handle fetch errors
+            console.error('Error fetching data:', error);
+            document.getElementById("lblErr").innerHTML = `No recognized faces found in the uploaded image`;
+        });
+    }
+});
+
+
+function previewImage(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function() {
+        const preview = document.getElementById('previewImage');
+        const img = document.createElement('img');
+        img.src = reader.result;
+        preview.innerHTML = '';              
+        preview.className = "face-preview";
+        preview.style.height = "120px";
+        preview.style.width = "120px";
+        preview.appendChild(img);
+
+        // Set the uploaded image as the matched image
+        const matchedImage = document.getElementById('matchedImage');
+        matchedImage.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
+
+
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    c.width = 900;
+    c.height = 600;
+
+    var saveImg = document.querySelector(".save-img");
+    var clearCanvasBtn = document.querySelector(".clear-canvas");
+    var x, y;
+    var selectedImageIndex = -1;
+    var offsetX, offsetY;
+    var isDragging = false;
+    var myImages = [];
+
+ 
+
+
+    var imgData = [
+        {
+            imgPath: "../assets/eyebrows",
+            imgGroupID: "G101",
+            imgIcn: "../assets/icons/eyebrow.png",
+            imgHgt: "25px",
+            imgWdth: "80px",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Eyebrows"
+        },
+        {
+            imgPath: "../assets/eyes",
+            imgGroupID: "G102",
+            imgIcn: "../assets/icons/eye.png",
+            imgHgt: "35px",
+            imgWdth: "90px",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Eyes"
+        },
+        {
+            imgPath: "../assets/hair",
+            imgGroupID: "G103",
+            imgIcn: "../assets/icons/hair.png",
+            imgHgt: "175px",
+            imgWdth: "175px",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Hair"
+        },
+        {
+            imgPath: "../assets/head",
+            imgGroupID: "G104",
+            imgHgt: "130px",
+            imgWdth: "120px",
+            imgIcn: "../assets/icons/head.png",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10"],
+            tooltip: "Head"
+        },
+        {
+            imgPath: "../assets/lips",
+            imgGroupID: "G105",
+            imgHgt: "20px",
+            imgWdth: "50px",
+            imgIcn: "../assets/icons/lips.png",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Lips"
+        },
+        {
+            imgPath: "../assets/mustach",
+            imgGroupID: "G106",
+            imgHgt: "25px",
+            imgWdth: "50px",
+            imgIcn: "../assets/icons/mustach.png",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Mustach"
+        },
+         {
+            imgPath: "../assets/nose",
+            imgGroupID: "G101",
+            imgIcn: "../assets/icons/nose.png",
+            imgHgt: "35px",
+            imgWdth: "25px",
+            imgName: ["01", "02", "03","04", "05", "06","07","08","09","10","11","12"],
+            tooltip: "Nose"
+        }
+        // Add other image data objects here
+    ];       
+
+    // ImageObject constructor
+    function ImageObject(x, y, image, width, height, imgGroupID) {
+        this.x = x;
+        this.y = y;
+        this.image = image;
+        this.width = width;
+        this.height = height;
+        this.imgGroupID = imgGroupID;
+    }
+
+    // Generate toolbox
+    var toolbox = document.querySelector(".toolbox");
+    imgData.forEach(function(group) {
+        var tool = document.createElement("div");
+        tool.className = "tool";
+        tool.title = group.tooltip;
+
+        var imgIcon = document.createElement("img");
+        imgIcon.src = group.imgIcn;
+        imgIcon.addEventListener("click", function() {
+            // Clear sub-icons
+            var subIconsDiv = document.querySelector(".sub-icons");
+            subIconsDiv.innerHTML = "";
+
+            // Display sub-icons
+            group.imgName.forEach(function(name) {
+                var subIcon = document.createElement("img");
+                subIcon.src = `${group.imgPath}/${name}.png`;
+                subIcon.title = name;
+                subIcon.addEventListener("mousedown", function(event) {
+                  event.preventDefault(); // Prevent default behavior of the image drag
+                  
+                    var img = new ImageObject(0, 0, new Image(), parseInt(group.imgWdth ), parseInt(group.imgHgt ), group.imgGroupID);
+                    img.image.src = subIcon.src;
+                    myImages.push(img);
+
+                    var rect = subIcon.getBoundingClientRect();
+                    var mouseX = event.clientX - rect.left;
+                    var mouseY = event.clientY - rect.top;
+                    offsetX = mouseX;
+                    offsetY = mouseY;
+                    
+                    selectedImageIndex = myImages.length - 1;
+                    isDragging = true;
+                });
+                subIconsDiv.appendChild(subIcon);
+            });
+        });
+
+        tool.appendChild(imgIcon);
+        toolbox.appendChild(tool);
+    });
+
+    function draw() {
+        var w,h;
+        ctx.clearRect(0, 0, c.width, c.height);
+        myImages.forEach(function(img) {
+
+            ctx.drawImage(img.image, img.x, img.y, img.width, img.height);
+           
+        });
+        requestAnimationFrame(draw);
+    }
+
+    function down(event) {
+        event = event || window.event;
+        var rect = c.getBoundingClientRect();
+        var mouseX = event.clientX - rect.left;
+        var mouseY = event.clientY - rect.top;
+
+        // Check if the mouse pointer is over any image
+        for (var i = myImages.length - 1; i >= 0; i--) {
+            var img = myImages[i];
+            if (mouseX >= img.x && mouseX <= img.x + img.width &&
+                mouseY >= img.y && mouseY <= img.y + img.height) {
+                isDragging = true;
+                selectedImageIndex = i;
+                offsetX = mouseX - img.x;
+                offsetY = mouseY - img.y;
+                break;
+            }
+        }
+    }
+
+    function move(event) {
+        event = event || window.event;
+        if (isDragging && selectedImageIndex !== -1) {
+            var rect = c.getBoundingClientRect();
+            var mouseX = event.clientX - rect.left;
+            var mouseY = event.clientY - rect.top;
+            myImages[selectedImageIndex].x = mouseX - offsetX;
+            myImages[selectedImageIndex].y = mouseY - offsetY;
+        }
+    }
+
+    function up(event) {
+        isDragging = false;
+        selectedImageIndex = -1;
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        myImages = [];
+    }
+
+    saveImg.addEventListener("click", () => {
+     
+        const link = document.createElement("a"); // creating <a> element
+        link.download = `canvas_image.jpeg`; // Setting a ../assets name for the downloaded image
+        link.href = c.toDataURL(); // Use 'c' instead of 'canvas'
+        link.click(); // clicking link to download image
+    });
+
+    function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function() {
+                const preview = document.getElementById('previewImage');
+                const img = document.createElement('img');
+                img.src = reader.result;
+                preview.innerHTML = '';              
+                preview.className="face-preview";
+                preview.style.height="120px";
+                preview.style.width="120px";
+                preview.appendChild(img);
+             
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+    clearCanvasBtn.addEventListener("click", clearCanvas);
+
+    c.addEventListener("mousedown", down);
+    c.addEventListener("mousemove", move);
+    c.addEventListener("mouseup", up);
+
+    draw();
+
+    </script>
+
+</body>
+</html>
