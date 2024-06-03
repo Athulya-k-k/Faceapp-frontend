@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Licency admin</title>
+</head>
+<body>
+    <h1>Register Staff User</h1>
+    <form id="registerStaffForm">
+        <input type="text" id="firstName" name="first_name" placeholder="First Name" required><br>
+        <input type="text" id="lastName" name="last_name" placeholder="Last Name" required><br>
+        <input type="text" id="org_name" name="org_name" placeholder="Org Name"  required><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+       
+        <button type="submit">Register Staff</button>
+    </form>
+
+    <script>
+        document.getElementById('registerStaffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('http://localhost:8000/register-staff/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    alert('Staff user registered successfully');
+                } else {
+                    alert('Error: ' + JSON.stringify(data));
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

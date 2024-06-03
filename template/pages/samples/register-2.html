@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>RoyalUI Admin</title>
+  <title>Faceapp Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
@@ -30,7 +30,7 @@
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
-              <!-- <form id="registerForm">
+              <form id="registerForm">
                 <div class="form-group">
                   <label>FirstName</label>
                   <div class="input-group">
@@ -39,7 +39,7 @@
                         <i class="ti-user text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" id="firstName" class="form-control form-control-lg border-left-0" placeholder="First Name" required>
+                    <input type="text" id="first_name" placeholder="First Name" class="form-control form-control-lg border-left-0" required><br>
                   </div>
                 </div>
                 <div class="form-group">
@@ -50,9 +50,24 @@
                         <i class="ti-email text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" id="lastName" placeholder="Last Name" class="form-control form-control-lg border-left-0" >
+                <input type="text" id="lastName" placeholder="Last Name" class="form-control form-control-lg border-left-0" required>
+
                   </div>
                 </div>
+               
+
+                <div class="form-group">
+                  <label>OrganizationName</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="ti-email text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="text" id="org_name" placeholder="Org Name" class="form-control form-control-lg border-left-0" required>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label>Email</label>
                   <div class="input-group">
@@ -61,7 +76,8 @@
                         <i class="ti-email text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" id="email" placeholder="Email" class="form-control form-control-lg border-left-0" >
+                <input type="email" id="email" placeholder="Email"  class="form-control form-control-lg border-left-0" required><br>
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -72,7 +88,8 @@
                         <i class="ti-email text-primary"></i>
                       </span>
                     </div>
-                    <input type="number" id="mobile" placeholder="Mobile" class="form-control form-control-lg border-left-0">
+                <input type="number" id="mobile" placeholder="Mobile" class="form-control form-control-lg border-left-0 required">
+
                   </div>
                 </div>
                 
@@ -84,7 +101,8 @@
                         <i class="ti-lock text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" id="password" placeholder="Password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" >                        
+                <input type="password" id="password" placeholder="Password" class="form-control form-control-lg border-left-0" required><br>
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -95,34 +113,29 @@
                         <i class="ti-lock text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control form-control-lg border-left-0" id="exampleInputPassword">                        
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control form-control-lg border-left-0" required><br>
+
+                    
                   </div>
                 </div>
                 
                 
                
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a>
+                
+                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Register</button>
+
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Already have an account? <a href="login.html" class="text-primary">Login</a>
                 </div>
-              </form> -->
+              </form>
 
-              <form id="registerForm">
-                <input type="text" id="first_name" placeholder="First Name" required><br>
-                <input type="text" id="lastName" placeholder="Last Name" required><br>
-                <input type="text" id="org_name" placeholder="Org Name" required><br>
-                <input type="email" id="email" placeholder="Email" required><br>
-                <input type="text" id="mobile" placeholder="Mobile" required><br>
-                <input type="password" id="password" placeholder="Password" required><br>
-                <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
-                <button type="submit">Register</button>
-            </form>
+             
             </div>
           </div>
           <div class="col-lg-6 register-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2021  All rights reserved.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end"></p>
           </div>
         </div>
       </div>
