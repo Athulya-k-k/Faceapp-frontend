@@ -147,8 +147,8 @@
   <!-- plugins:js -->
   <script>
     document.getElementById('registerForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const data = {
+    e.preventDefault();
+    const data = {
             first_name: document.getElementById('first_name').value,
             last_name: document.getElementById('lastName').value,
             org_name: document.getElementById('org_name').value,
@@ -158,6 +158,7 @@
             confirm_password: document.getElementById('confirmPassword').value
         };
         console.log('Sending data:', data);
+        
         fetch('http://localhost:8000/register/', {
             method: 'POST',
             headers: {

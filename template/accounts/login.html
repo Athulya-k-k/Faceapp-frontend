@@ -114,27 +114,30 @@
         })
         .then(response => response.json())
         .then(data => {
-            if (data.token) {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('role', data.role);
-                localStorage.setItem('first_name', data.first_name); // Save firstname to localStorage
-                localStorage.setItem('org_name', data.org_name); // Save org_name to localStorage
+            if (data.access_token) {
+              localStorage.setItem('access_token', data.access_token);
+              localStorage.setItem('role', data.role);
+              localStorage.setItem('first_name', data.first_name);
+              localStorage.setItem('org_name', data.org_name);
+                // Redirect user based on their role
                 if (data.role === 'user') {
-                window.location.href = '/template/index.html?message=success'; // Redirect user to user dashboard with success message
-            } else if (data.role === 'licency') {
-                window.location.href = '/template/accounts/licency.html?message=success'; // Redirect licency to licency dashboard with success message
-            } else if (data.role === 'vendor') {
-                window.location.href = '/template/accounts/vendor.html?message=success'; // Redirect to vendor dashboard with success message
+                  window.location.href = '/template/index.html?message=success';
+                } else if (data.role === 'licency') {
+                    window.location.href = '/template/licency.html?message=success'; // Redirect licency to licency dashboard
+                } else if (data.role === 'vendor') {
+                    window.location.href = '/template/vendor.html?message=success'; // Redirect to vendor dashboard
+                }
             } else {
-                toastr.error('Login failed: ' );
-            }}
+                toastr.error('Login failed: ' + data.error);
+            }
         })
         .catch(error => {
             console.error('Error:', error);
             toastr.error('Login failed: An error occurred');
         });
     });
-  </script>
+</script>
+
 </body>
 
 </html>
