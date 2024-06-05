@@ -21794,7 +21794,7 @@ dl li {
 }
 
 .content-wrapper {
-  background: #dddce1;
+  background: rgb(238, 242, 246);
   padding: 1.5rem 2.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -22571,3 +22571,5 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+

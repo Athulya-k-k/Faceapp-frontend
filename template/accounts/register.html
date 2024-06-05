@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Faceapp Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                <img src="../images/logo.svg" alt="logo">
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
@@ -127,7 +127,7 @@
 
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  Already have an account? <a href="./login.html" class="text-primary">Login</a>
                 </div>
               </form>
 
@@ -173,7 +173,7 @@
             console.log('Response data:', data);
             if (status === 201) {
                 console.log('User registered successfully, redirecting to index.html');
-                window.location.href = 'login-2.html';
+                window.location.href = 'login.html';
             } else {
                 console.error('Error in response data:', data);
                 alert('Error: ' + JSON.stringify(data));
@@ -187,13 +187,13 @@
 
 
 
-  <script src="../../vendors/base/vendor.bundle.base.js"></script>
+  <script src="../vendors/base/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <script src="../../js/todolist.js"></script>
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <script src="../js/todolist.js"></script>
  
   <!-- endinject -->
 </body>

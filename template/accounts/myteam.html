@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>RoyalUI Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+              <a class="navbar-brand brand-logo me-5" href="../../index.html">
+                <img src="../../template/images/logo.svg" class="me-2" alt="logo"/>
+              </a>
+              <a class="navbar-brand brand-logo-mini" href="../../index.html">
+                <img src="../../template/images/logo.svg" alt="logo"/>
+              </a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="flex-grow: 1; display: flex; align-items: center; position: relative;">
+              <button class="navbar-toggler align-self-center" type="button" data-toggle="minimize" style="position: absolute; left: 10px;">
+                <span class="ti-view-list"></span>
+              </button>
+              <div style="display: inline-block; color: black; font-size: larger; margin-left: 10px;">
+                <span id="org_name">Organization Name</span>
+              </div>
+              <div style="margin-left: auto; color: black; font-size: larger; margin-right: 2px;">
+                <span id="first_name">First Name</span>
+              </div>
+              <ul class="navbar-nav navbar-nav-right" style="list-style: none; display: flex; align-items: center; margin: 0;">
+                <li class="nav-item dropdown" style="position: relative;">
+                  <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown" style="text-decoration: none; color: inherit;">
+                    <i class="ti-bell mx-0"></i>
+                    <span class="count"></span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown" style="position: absolute; top: 100%; right: 0; display: none;">
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                    <a class="dropdown-item" href="#">
+                      <div class="item-thumbnail">
+                        <div class="item-icon bg-success">
+                          <i class="ti-info-alt mx-0"></i>
+                        </div>
+                      </div>
+                      <div class="item-content">
+                        <h6 class="font-weight-normal">Application Error</h6>
+                        <p class="font-weight-light small-text mb-0 text-muted">Just now</p>
+                      </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <div class="item-thumbnail">
+                        <div class="item-icon bg-warning">
+                          <i class="ti-settings mx-0"></i>
+                        </div>
+                      </div>
+                      <div class="item-content">
+                        <h6 class="font-weight-normal">Settings</h6>
+                        <p class="font-weight-light small-text mb-0 text-muted">Private message</p>
+                      </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <div class="item-thumbnail">
+                        <div class="item-icon bg-info">
+                          <i class="ti-user mx-0"></i>
+                        </div>
+                      </div>
+                      <div class="item-content">
+                        <h6 class="font-weight-normal">New user registration</h6>
+                        <p class="font-weight-light small-text mb-0 text-muted">2 days ago</p>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item nav-profile dropdown" style="position: relative;">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown" style="text-decoration: none; color: inherit;">
+                    <img src="../images/faces/face28.jpg" alt="profile" style="border-radius: 50%;" />
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown" style="position: absolute; top: 100%; right: 0; display: none;">
+                    <a class="dropdown-item" href="#">
+                      <i class="ti-settings text-primary"></i> My Profile
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="ti-power-off text-primary"></i> Logout
+                    </a>
+                  </div>
+                </li>
+              </ul>
+              <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="ti-view-list"></span>
+              </button>
+            </div>
+          </nav>
+          
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="ti-shield menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <i class="ti-image menu-icon"></i>
+                        <span class="menu-title">Match Profile</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./myteam.html">
+                            <i class="ti-layout-list-post menu-icon"></i>
+                            <span class="menu-title">My Team</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./support.html">
+                          <i class="ti-support menu-icon"></i>
+                          <span class="menu-title">Support</span>
+                        </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                          <i class="ti-settings menu-icon"></i>
+                          <span class="menu-title">Settings</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../accounts/addlicency.html">
+                          <i class="ti-support menu-icon"></i>
+                          <span class="menu-title">Add Licency</span>
+                        </a>
+                      </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div
+                                    class="card-body d-flex align-items-center justify-content-between">
+                                    <h1 style="color: black; font-size: larger; padding-top: 20px; margin-right: 20px;"
+                                        class="card-title">My Team</h1>
+                                    <input type="text" placeholder="Search Here"
+                                        style="width: 400px; border: solid black; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px; text-align: center;">
+                                    <div style="display: flex;">
+                                        <button
+                                            style="border-radius: 3px;height: 30px; margin-right: 10px; width: 80px; background-color: black; color: white;">Result</button>
+                                        <button
+                                            style="border-radius: 3px; height: 30px; width: 80px; background-color: black; color: white;">+ADD</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown float-end" style="margin-bottom: 10px;">
+                                        <button class="btn dropdown-toggle" type="button" id="filterDropdown"
+                                            data-bs-toggle="dropdown">
+                                            Filter by Role
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                                            <li><a class="dropdown-item" href="#">All</a></li>
+                                            <li><a class="dropdown-item" href="#">Operator</a></li>
+                                            <li><a class="dropdown-item" href="#">Accountant</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>NAME</th>
+                                                <th>EMAIL</th>
+                                                <th>USER ROLE</th>
+                                                <th>ACTIONS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="user-table-body">
+                                            <!-- User data will be dynamically inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fetchRegisteredUsers() {
+            const token = localStorage.getItem('token'); // Retrieve token from local storage
+            console.log('Token:', token); // Debugging statement
+            if (!token) {
+                console.error('No authentication token found.');
+                toastr.error('No authentication token found. Please login again.');
+                return;
+            }
+
+            fetch('http://localhost:8000/registered-users/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${token}` // Include token in the request headers
+                }
+            })
+                .then(response => {
+                    console.log('Response:', response); // Debugging statement
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch registered users');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data:', data); // Debugging statement
+                    const userList = document.getElementById('user-table-body');
+                    userList.innerHTML = ''; // Clear previous content
+                    data.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${user.first_name}</td>
+                            <td>${user.email}</td>
+                            <td>${user.role}</td>
+                            <td>
+                                <button style="border: none;">👁️</button>
+                                <button style="border: none;">✏️</button>
+                                <button style="border: none;">🗑️</button>
+                            </td>
+                        `;
+                        userList.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching registered users:', error);
+                    toastr.error('Failed to fetch registered users. Please try again later.');
+                });
+        }
+
+        window.addEventListener('load', fetchRegisteredUsers);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const first_name = localStorage.getItem('first_name');
+            const org_name = localStorage.getItem('org_name');
+            console.log('First Name from localStorage:', first_name); // Debugging statement
+            console.log('Organization Name from localStorage:', org_name); // Debugging statement
+
+            const firstNameElement = document.getElementById('first_name');
+            const orgNameElement = document.getElementById('org_name');
+
+            if (first_name) {
+                firstNameElement.innerText = first_name;
+            } else {
+                firstNameElement.innerText = 'User';
+            }
+
+            if (org_name) {
+                orgNameElement.innerText = org_name;
+            } else {
+                orgNameElement.innerText = 'your organization';
+            }
+        });
+    </script>
+
+    <script src="../vendors/base/vendor.bundle.base.js"></script>
+
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/hoverable-collapse.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/todolist.js"></script>
+
+</body>
+
+</html>
