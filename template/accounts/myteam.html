@@ -13,8 +13,18 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/style.css">
   <!-- endinject -->
+
   <link rel="shortcut icon" href="../images/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+     
+      .toast-success, .toast-error, .toast-info, .toast-warning {
+        color: green !important;
+      }
+    </style>
 
 </head>
 
@@ -207,154 +217,344 @@
       </div>
     </div>
     <!-- User Details Modal -->
-   <!-- Your existing HTML code -->
-<button style="border: none; background-color: transparent; color: black;" 
-onmouseover="this.style.backgroundColor='lightgray'" 
-onmouseout="this.style.backgroundColor='transparent'" 
-onclick="viewUser(${user.id})">view</button>
+    <!-- Your existing HTML code -->
+    <button style="border: none; background-color: transparent; color: black;"
+      onmouseover="this.style.backgroundColor='lightgray'" onmouseout="this.style.backgroundColor='transparent'"
+      onclick="viewUser(${user.id})">view</button>
 
-<!-- The Modal -->
-<div class="modal" id="userDetailsModal">
-<div class="modal-dialog">
-<div class="modal-content">
-<!-- Modal Header -->
-<div class="modal-header">
-<h4 class="modal-title">User Details</h4>
-<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<!-- Modal body -->
-<div class="modal-body">
-<p>First Name: <span id="modalFirstName"></span></p>
-<p>Last Name: <span id="modalLastName"></span></p>
-<p>Organization Name: <span id="modalOrgName"></span></p>
-<p>Email: <span id="modalEmail"></span></p>
-<p>Mobile: <span id="modalMobile"></span></p>
-<p>Role: <span id="modalRole"></span></p>
-</div>
-<!-- Modal footer -->
-<div class="modal-footer">
-<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
+    <!-- The Modal -->
+    <div class="modal" id="userDetailsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">User Details</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>First Name: <span id="modalFirstName"></span></p>
+            <p>Last Name: <span id="modalLastName"></span></p>
+            <p>Organization Name: <span id="modalOrgName"></span></p>
+            <p>Email: <span id="modalEmail"></span></p>
+            <p>Mobile: <span id="modalMobile"></span></p>
+            <p>Role: <span id="modalRole"></span></p>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Edit User Modal -->
+    <!-- Edit User Modal -->
+    <div class="modal" id="editUserModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Edit User</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form id="editUserForm">
+              <input type="hidden" id="editUserId">
+              <div class="mb-3">
+                <label for="editFirstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="editFirstName" required>
+              </div>
+              <div class="mb-3">
+                <label for="editLastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="editLastName" required>
+              </div>
+              <div class="mb-3">
+                <label for="editOrgName" class="form-label">Organization Name</label>
+                <input type="text" class="form-control" id="editOrgName" required>
+              </div>
+              <div class="mb-3">
+                <label for="editEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="editEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="editMobile" class="form-label">Mobile</label>
+                <input type="text" class="form-control" id="editMobile" required>
+              </div>
+              <div class="mb-3">
+                <label for="editRole" class="form-label">Role</label>
+                <input type="text" class="form-control" id="editRole" required>
+              </div>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGz1U1z5Yf8U4lPZ5kRgt3q6PAo0CKk5ni1I8d2vF0Go4" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+integrity="sha384-QF1oT1tG+2m1tAUNdH+7l0uK0GmUQ1pBnxAvzCBRlICpIM1HLZ3ZE3VZ4wJ8FduT" crossorigin="anonymous">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script>
+    // Toastr configuration
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
+
+    function showSuccessMessage() {
+      toastr.success("This is a success message!");
+    }
+
+    function showErrorMessage() {
+      toastr.error("This is an error message!");
+    }
+  </script>
 
 <script>
-  function fetchRegisteredUsers() {
-    const token = localStorage.getItem('token');
-    console.log('Token:', token);
-    if (!token) {
-      console.error('No authentication token found.');
-      toastr.error('No authentication token found. Please login again.');
-      return;
-    }
-  
-    fetch('http://localhost:8000/registered-users/', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Token ${token}`
+    function fetchRegisteredUsers() {
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);
+      if (!token) {
+        console.error('No authentication token found.');
+        toastr.error('No authentication token found. Please login again.');
+        return;
       }
-    })
-      .then(response => {
-        console.log('Response:', response);
-        if (!response.ok) {
-          throw new Error('Failed to fetch registered users');
+
+      fetch('http://localhost:8000/registered-users/', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${token}`
         }
-        return response.json();
       })
-      .then(data => {
-        console.log('Data:', data);
-        const userList = document.getElementById('user-table-body');
-        userList.innerHTML = '';
-        data.forEach(user => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
+        .then(response => {
+          console.log('Response:', response);
+          if (!response.ok) {
+            throw new Error('Failed to fetch registered users');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Data:', data);
+          const userList = document.getElementById('user-table-body');
+          userList.innerHTML = '';
+          data.forEach(user => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
             <td>${user.first_name}</td>
             <td>${user.email}</td>
             <td>${user.role}</td>
             <td>
               <button style="border: none; background-color: transparent; color: black;" onmouseover="this.style.backgroundColor='lightgray'" onmouseout="this.style.backgroundColor='transparent'" onclick="viewUser(${user.id})">view</button>
-              <button style="border: none; background-color: transparent; color: black;" onmouseover="this.style.backgroundColor='lightgray'" onmouseout="this.style.backgroundColor='transparent'">edit</button>
-              <button class="btn " onclick="deleteUser(${user.id})">Delete</button>
+              <button 
+    style="border: none; background-color: transparent; color: black;" 
+    onmouseover="this.style.backgroundColor='lightgray'" 
+    onmouseout="this.style.backgroundColor='transparent'"
+    onclick="editUser(${user.id})"> 
+    Edit
+</button>
+              <button style="border: none; background-color: transparent; color: black;" onmouseover="this.style.backgroundColor='lightgray'" onmouseout="this.style.backgroundColor='transparent'" onclick="deleteUser(${user.id})">Delete</button>
             </td>
           `;
-          userList.appendChild(row);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching registered users:', error);
-        toastr.error('Failed to fetch registered users. Please try again later.');
-      });
-  }
-  
-  function viewUser(user_id) {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      console.error('No authentication token found.');
-      toastr.error('No authentication token found. Please login again.');
-      return;
-    }
-  
-    fetch(`http://localhost:8000/get-user/${user_id}/`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Token ${token}`
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch user details');
-        }
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('modalFirstName').innerText = data.first_name;
-        document.getElementById('modalLastName').innerText = data.last_name;
-        document.getElementById('modalOrgName').innerText = data.org_name;
-        document.getElementById('modalEmail').innerText = data.email;
-        document.getElementById('modalMobile').innerText = data.mobile;
-        document.getElementById('modalRole').innerText = data.role;
-  
-        $('#userDetailsModal').modal('show');
-      })
-      .catch(error => {
-        console.error('Error fetching user details:', error);
-        toastr.error('Failed to fetch user details. Please try again later.');
-      });
-  }
-  
-  function deleteUser(user_id) {
-    if (confirm('Are you sure you want to delete this user?')) {
-      fetch(`http://localhost:8000/delete-user/${user_id}/`, {
-        method: 'DELETE'
-      })
-        .then(response => {
-          if (response.ok) {
-            alert('User deleted successfully.');
-            fetchRegisteredUsers();
-          } else {
-            throw new Error('Failed to delete user');
-          }
+            userList.appendChild(row);
+          });
         })
         .catch(error => {
-          console.error('Error deleting user:', error);
-          alert('Failed to delete user. Please try again later.');
+          console.error('Error fetching registered users:', error);
+          toastr.error('Failed to fetch registered users. Please try again later.');
         });
     }
-  }
-  
-  window.addEventListener('load', fetchRegisteredUsers);
-  
+
+    function viewUser(user_id) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('No authentication token found.');
+        toastr.error('No authentication token found. Please login again.');
+        return;
+      }
+
+      fetch(`http://localhost:8000/get-user/${user_id}/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch user details');
+          }
+          return response.json();
+        })
+        .then(data => {
+          document.getElementById('modalFirstName').innerText = data.first_name;
+          document.getElementById('modalLastName').innerText = data.last_name;
+          document.getElementById('modalOrgName').innerText = data.org_name;
+          document.getElementById('modalEmail').innerText = data.email;
+          document.getElementById('modalMobile').innerText = data.mobile;
+          document.getElementById('modalRole').innerText = data.role;
+
+          $('#userDetailsModal').modal('show');
+        })
+        .catch(error => {
+          console.error('Error fetching user details:', error);
+          toastr.error('Failed to fetch user details. Please try again later.');
+        });
+    }
 
 
-document.getElementById('userForm').addEventListener('submit', handleFormSubmit);
+
+    function editUser(user_id) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('No authentication token found.');
+        toastr.error('No authentication token found. Please login again.');
+        return;
+      }
+
+      fetch(`http://localhost:8000/get-user/${user_id}/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch user details');
+          }
+          return response.json();
+        })
+        .then(data => {
+          document.getElementById('editUserId').value = user_id;
+          document.getElementById('editFirstName').value = data.first_name;
+          document.getElementById('editLastName').value = data.last_name;
+          document.getElementById('editOrgName').value = data.org_name;
+          document.getElementById('editEmail').value = data.email;
+          document.getElementById('editMobile').value = data.mobile;
+          document.getElementById('editRole').value = data.role;
+
+          new bootstrap.Modal(document.getElementById('editUserModal')).show();
+        })
+        .catch(error => {
+          console.error('Error fetching user details:', error);
+          toastr.error('Failed to fetch user details. Please try again later.');
+        });
+    }
+
+    document.getElementById('editUserForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('No authentication token found.');
+        toastr.error('No authentication token found. Please login again.');
+        return;
+      }
+
+      const userId = document.getElementById('editUserId').value;
+      const updatedData = {
+        first_name: document.getElementById('editFirstName').value,
+        last_name: document.getElementById('editLastName').value,
+        org_name: document.getElementById('editOrgName').value,
+        email: document.getElementById('editEmail').value,
+        mobile: document.getElementById('editMobile').value,
+        role: document.getElementById('editRole').value,
+        // password field can be optional depending on whether you want to update it or not
+        password: document.getElementById('editPassword') ? document.getElementById('editPassword').value : null
+      };
+
+      // Remove the password key if the field is not included in the form
+      if (!updatedData.password) {
+        delete updatedData.password;
+      }
+
+      fetch(`http://localhost:8000/update-user/${userId}/`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${token}`
+        },
+        body: JSON.stringify(updatedData)
+      })
+        .then(response => {
+          if (!response.ok) {
+            return response.json().then(data => {
+              throw new Error(data.detail || 'Failed to update user details');
+            });
+          }
+          return response.json();
+        })
+        .then(data => {
+          toastr.success('User details updated successfully.');
+          $('#editUserModal').modal('hide'); // Close the modal
+          fetchRegisteredUsers(); // Assuming this function refreshes the user list
+        })
+        .catch(error => {
+          console.error('Error updating user details:', error);
+          toastr.error('Failed to update user details. Please try again later.');
+        });
+    });
 
 
+
+    function deleteUser(user_id) {
+      if (confirm('Are you sure you want to delete this user?')) {
+        fetch(`http://localhost:8000/delete-user/${user_id}/`, {
+          method: 'DELETE'
+        })
+          .then(response => {
+            if (response.ok) {
+              alert('User deleted successfully.');
+              fetchRegisteredUsers();
+            } else {
+              throw new Error('Failed to delete user');
+            }
+          })
+          .catch(error => {
+            console.error('Error deleting user:', error);
+            alert('Failed to delete user. Please try again later.');
+          });
+      }
+    }
+
+    window.addEventListener('load', fetchRegisteredUsers);
 
   </script>
 
@@ -381,12 +581,7 @@ document.getElementById('userForm').addEventListener('submit', handleFormSubmit)
       }
     });
   </script>
-
-
-
-
-
-
+ 
   <script src="../vendors/base/vendor.bundle.base.js"></script>
 
   <script src="../js/off-canvas.js"></script>

@@ -123,9 +123,9 @@
                 if (data.role === 'user') {
                   window.location.href = '/template/index.html?message=success';
                 } else if (data.role === 'licency') {
-                    window.location.href = '/template/licency.html?message=success'; // Redirect licency to licency dashboard
+                    window.location.href = '/template/accounts/licency.html?message=success'; // Redirect licency to licency dashboard
                 } else if (data.role === 'vendor') {
-                    window.location.href = '/template/vendor.html?message=success'; // Redirect to vendor dashboard
+                    window.location.href = '/template/accounts/vendor.html?message=success'; // Redirect to vendor dashboard
                 }
             } else {
                 toastr.error('Login failed: ' + data.error);
