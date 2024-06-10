@@ -381,7 +381,7 @@ integrity="sha384-QF1oT1tG+2m1tAUNdH+7l0uK0GmUQ1pBnxAvzCBRlICpIM1HLZ3ZE3VZ4wJ8Fd
             row.innerHTML = `
             <td>${user.first_name}</td>
             <td>${user.email}</td>
-            <td>${user.role}</td>
+         <td>${user.role} ${user.licency_role}</td>
             <td>
               <button style="border: none; background-color: transparent; color: black;" onmouseover="this.style.backgroundColor='lightgray'" onmouseout="this.style.backgroundColor='transparent'" onclick="viewUser(${user.id})">view</button>
               <button 

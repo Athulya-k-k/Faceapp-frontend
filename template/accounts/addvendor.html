@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Vendor</title>
+    <title>Register Licency Staff</title>
 </head>
 <body>
-    <h1>Register Vendor</h1>
-    <form id="registerVendorForm">
+    <h1>Register vendor User</h1>
+    <form id="registerStaffForm">
         <input type="text" id="firstName" name="first_name" placeholder="First Name" required><br>
         <input type="text" id="lastName" name="last_name" placeholder="Last Name" required><br>
         <input type="text" id="orgName" name="org_name" placeholder="Org Name" required><br>
         <input type="email" id="email" name="email" placeholder="Email" required><br>
         <input type="text" id="mobile" name="mobile" placeholder="Mobile" required><br>
         <input type="password" id="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Register Vendor</button>
+        <input type="hidden" id="role" name="role" value="licency">
+        <select id="licencyRole" name="vendor_role" required>
+            <option value="" disabled selected>Select vendor Role</option>
+            <option value="accountant">Accountant</option>
+            <option value="operator">Operator</option>
+            <option value="manager">Manager</option>
+        </select><br>
+        <button type="submit">Register vendor </button>
     </form>
 
     <script>
-        document.getElementById('registerVendorForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Collect form data
+        document.getElementById('registerStaffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             const formData = new FormData(this);
-
-            // Send POST request to register the vendor
             fetch('http://localhost:8000/register-vendor/', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
-                if (data) {
-                    alert('Vendor registered successfully');
-                    // Optionally, redirect to a success page or display a success message
+                if (data.id) {
+                    alert('Licency staff user registered successfully');
                 } else {
                     alert('Error: ' + JSON.stringify(data));
-                    // Optionally, display an error message to the user
                 }
             })
             .catch(error => console.error('Error:', error));
